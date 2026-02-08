@@ -101,7 +101,7 @@ const logginUser = asyncHandler(async(req , res) => {
 
    const option = {
     httpOnly: true,
-    secure: false, // https par true
+    secure: true, // https par true
     sameSite: "lax" // ya "none" agar cross-origin
 }
 
@@ -132,7 +132,7 @@ const logout = asyncHandler(async(req , res) => {
 
 const option = {
   httpOnly:true,
-  secure:false
+  secure:true
 }
 return res.status(200)
 .clearCookie("accesstoken" , option)
