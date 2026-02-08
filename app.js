@@ -10,9 +10,13 @@ import cors from "cors"
 
 const app = express()
 app.use(cors({
-    origin:"https://sell-buy-books-nextjs.vercel.app",
-    credentials:true
-}))
+  origin: [
+    "http://localhost:3000",
+    "https://sell-buy-books-nextjs.vercel.app"
+  ],
+  credentials: true
+}));
+
 
 app.use(express.json({limit:"10kb"}))
 app.use(express.urlencoded({extended:true,limit:"10kb"}))
