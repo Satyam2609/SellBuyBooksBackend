@@ -99,11 +99,12 @@ const logginUser = asyncHandler(async(req , res) => {
 
     const {accesstoken , refreshtoken} = await generateAccessTokenRefreshToken(user._id)
 
-   const option = {
-    httpOnly: true,
-    secure: true, // https par true
-    sameSite: "lax" // ya "none" agar cross-origin
+  const option = {
+  httpOnly: true,
+  secure: true,
+  sameSite: "none"
 }
+
 
     return res.status(200)
     .cookie("accesstoken" , accesstoken , option)
@@ -131,9 +132,11 @@ const logout = asyncHandler(async(req , res) => {
 )
 
 const option = {
-  httpOnly:true,
-  secure:true
+  httpOnly: true,
+  secure: true,
+  sameSite: "none"
 }
+
 return res.status(200)
 .clearCookie("accesstoken" , option)
 .clearCookie("refreshtoken" , option)
