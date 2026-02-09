@@ -10,7 +10,7 @@ import cors from "cors"
 
 const app = express()
 app.use(cors({
-  origin:"https://sell-buy-books-nextjs.vercel.app",
+  origin:"*",
 
   credentials: true
 }));
